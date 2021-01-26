@@ -9,9 +9,11 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$numberSound.wav');
   }
 
-  Widget buildKey({Color color, int soundNumber}) {
-    return Expanded(
-      child: FlatButton(
+  Widget buildKey({Color color, int soundNumber, double hPadding}) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: hPadding),
+      height: 50.0,
+      child: MaterialButton(
         onPressed: () {
           playSound(soundNumber);
         },
@@ -27,14 +29,18 @@ class XylophoneApp extends StatelessWidget {
         body: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              buildKey(color: Colors.red, soundNumber: 1),
-              buildKey(color: Colors.orange, soundNumber: 2),
-              buildKey(color: Colors.yellow, soundNumber: 3),
-              buildKey(color: Colors.green, soundNumber: 4),
-              buildKey(color: Colors.teal, soundNumber: 5),
-              buildKey(color: Colors.blue, soundNumber: 6),
-              buildKey(color: Colors.purple, soundNumber: 7),
+              buildKey(color: Colors.red, soundNumber: 1, hPadding: 10.0),
+              buildKey(color: Colors.orange, soundNumber: 2, hPadding: 30.0),
+              buildKey(color: Colors.yellow, soundNumber: 3, hPadding: 50.0),
+              buildKey(color: Colors.green, soundNumber: 4, hPadding: 70.0),
+              buildKey(color: Colors.lightBlue, soundNumber: 5, hPadding: 90.0),
+              buildKey(
+                  color: Colors.blue.shade700, soundNumber: 6, hPadding: 110.0),
+              buildKey(color: Colors.purple, soundNumber: 7, hPadding: 130.0),
+              buildKey(
+                  color: Colors.redAccent, soundNumber: 1, hPadding: 150.0),
             ],
           ),
         ),
